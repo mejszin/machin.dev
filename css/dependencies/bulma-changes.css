@@ -1,0 +1,8 @@
+.navbar-item {
+    transition-duration: 200ms !important;
+}
+
+.navbar-item:hover {
+    color: lightgrey !important;
+    background-color: inherit !important;
+}
