@@ -19,7 +19,7 @@ var assignValues = () => {
 
 var getTask = () => {
     return new Promise(resolve => {
-        fetch(`${base_url}/tasks/${task_id}?token=${token}`).then(response => {
+        fetch(`${base_url}/task/${task_id}?token=${token}`).then(response => {
         	response.json().then(data => {
                 console.log(data);
                 resolve(data);
