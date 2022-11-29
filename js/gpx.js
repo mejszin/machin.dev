@@ -1,3 +1,6 @@
+var gpx_map_id;
+var gpx_map_uri;
+
 var gpx_map_sketch = (sketch) => {
 
     sketch.waypoints = [];
@@ -8,9 +11,14 @@ var gpx_map_sketch = (sketch) => {
     sketch.red = sketch.color(255, 0, 0);
     sketch.green = sketch.color(0, 255, 0);
 
+    sketch.id;
+    sketch.uri;
+
     sketch.preload = () => {
-        let filename = sketch.id.split('_').slice(1).join('_') + '.gpx';
-        sketch.loadXML(filename, xml => {
+        sketch.id = gpx_map_id;
+        sketch.uri = gpx_map_uri;
+        sketch.loadXML(sketch.uri, xml => {
+            console.log(xml);
             let nodes = xml.getChildren('trkpt');
             for (let i = 0; i < nodes.length; i++) {
                 // Get values from XML node
@@ -34,6 +42,7 @@ var gpx_map_sketch = (sketch) => {
 
     sketch.setup = () => {
         sketch.noCanvas();
+        console.log('div_id=', sketch.id);
         var map = L.map(sketch.id).setView(sketch.focalpoint, 16);
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
         let polylinePoints = sketch.waypoints.map(point => new L.LatLng(...point));
@@ -53,11 +62,12 @@ var gpx_map_sketch = (sketch) => {
     
 }
 
-var renderMap = (dom_id) => {
+var renderMap = (id, uri) => {
     // dom_id must be in the format map_basename
     // e.g. map_my_run for my_run.gpx
+    gpx_map_id = id;
+    gpx_map_uri = uri;
     var gpx_map_p5 = new p5(gpx_map_sketch);
-    gpx_map_p5.id = dom_id;
 }
 
 // renderMap('map_activity_9450094021');

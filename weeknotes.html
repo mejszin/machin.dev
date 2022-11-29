@@ -19,6 +19,7 @@
     <!-- Source -->
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script src="./js/navbar.js"></script>
+    <script src="./js/gpx.js"></script>
     <script src="./js/date.js"></script>
     <script src="./js/astra.js"></script>
     <script src="./js/weeknotes.js"></script>
@@ -29,12 +30,15 @@
     <!-- Navigation bar -->
     <div id="navbar-menu"></div>
     <!-- Content -->
-    <div id="weeknotes" class="pt-6"></div>
+    <div class="columns pt-6">
+        <div id="weeknote-title" class="column is-two-fifths"></div>
+        <div id="weeknote-content" class="column content is-two-fifths"></div>
+    </div>
     <!-- Script -->
     <script>
         renderNavbar('Louis Machin');
         assignValues().then(() => {
-            renderWeeknoteTitles();
+            renderWeeknote();
         });
     </script>
 </body>
