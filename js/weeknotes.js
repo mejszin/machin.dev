@@ -58,7 +58,7 @@ var renderGPX = (basename, uri) => {
     let parent = document.getElementById('entries');
     let div = document.createElement('div');
     div.id = `map_${basename}`;
-    div.classList.add('gpx-map', 'mt-2');
+    div.classList.add('gpx-map', 'my-2');
     parent.appendChild(div);
     renderMap(div.id, uri);
 }
