@@ -6,3 +6,8 @@
     color: lightgrey !important;
     background-color: inherit !important;
 }
+
+.navbar-item:focus {
+    color: lightgrey !important;
+    background-color: inherit !important;
+}
