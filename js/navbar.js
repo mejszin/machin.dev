@@ -5,6 +5,7 @@ var navlinks = {
     'GitHub': 'https://github.com/mejszin',
     'Instagram': 'https://instagram.com/mejszin',
     'YouTube': 'https://youtube.com/@louismachin',
+    'Email': 'mailto:louis@machin.dev',
 }
 
 var renderNavbar = (active = null) => {
