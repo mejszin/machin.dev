@@ -10,3 +10,7 @@ body {
 #weeknote-title {
     border-top: 4px solid black;
 }
+
+div.code {
+    white-space: pre !important;
+}

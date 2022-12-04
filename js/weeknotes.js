@@ -30,6 +30,11 @@ var renderWeeknoteFeed = () => {
                     console.log(entry.content.text);
                     renderText(entry.content.text);
                     break;
+                case 'code':
+                    // render code
+                    console.log(entry.content.text, entry.content.language);
+                    renderCode(entry.content.text, entry.content.language);
+                    break;
                 case 'gpx':
                     // render gpx
                     console.log(entry.content.uri);
@@ -61,4 +66,19 @@ var renderGPX = (basename, uri) => {
     div.classList.add('gpx-map', 'mt-2', 'mb-4');
     parent.appendChild(div);
     renderMap(div.id, uri);
+}
+
+var renderCode = (text, language='text') => {
+    let parent = document.getElementById('entries');
+//  let li = document.createElement('li');
+//  li.classList.add('pb-2');
+//  parent.appendChild(li);
+    let pre = document.createElement('pre');
+    pre.classList.add('p-0');
+    parent.appendChild(pre);
+    let code = document.createElement('code');
+    code.classList.add(`language-${language}`, 'p-0', 'py-4');
+    code.innerHTML = text.replaceAll('\t', '  ');
+    pre.appendChild(code);
+    hljs.highlightElement(code, language);
 }
