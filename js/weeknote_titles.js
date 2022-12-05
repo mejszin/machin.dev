@@ -10,7 +10,7 @@ var renderWeeknoteTitles = () => {
             console.log('week_no=', week_no, 'start_date=', start_date);
             // Anchor
             let anchor = document.createElement('a');
-            anchor.href = `./weeknotes.html?week=${week_no}`
+            anchor.href = `./weeknotes?week=${week_no}`
             div.appendChild(anchor);
             // Title
             let h1 = document.createElement('h1');
