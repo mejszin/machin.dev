@@ -47,13 +47,13 @@ var renderRSSFeed = (url = 'https://lor.sh/@louis.rss') => {
             // Media
             if (media !== null) {
                 let img = document.createElement('img');
-                img.classList.add('py-4');
+                img.classList.add('pt-4');
                 img.src = media;
                 div.appendChild(img);
             }
             // Tags
             let tags = document.createElement('div');
-            tags.classList.add('tags', 'are-small');
+            tags.classList.add('tags', 'are-small', 'pt-2');
             div.appendChild(tags);
             // Date
             let span = document.createElement('span');
