@@ -46,6 +46,7 @@
     <script>
         renderNavbar('Louis Machin');
         assignValues().then(() => {
+            document.querySelector('meta[name="description"]').setAttribute("content", week);
             renderWeeknote();
         });
     </script>
