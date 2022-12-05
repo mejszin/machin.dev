@@ -8,7 +8,9 @@
     <meta name="author" content="Louis Machin">
     <meta name="description" content="Weeknotes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com">
+    <!-- Moment.js -->
+    <script src="./js/dependencies/moment.js"></script>
     <!-- p5 -->
     <script src="./js/dependencies/p5.js"></script>
     <!-- Leaflet.js -->
@@ -22,6 +24,7 @@
     <!-- Source -->
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script src="./js/navbar.js"></script>
+    <script src="./js/rss.js"></script>
     <script src="./js/date.js"></script>
     <script src="./js/astra.js"></script>
     <script src="./js/weeknotes.js"></script>
@@ -29,13 +32,21 @@
 </head>
 
 <body>
-    <!-- Navigation bar -->
-    <div id="navbar-menu"></div>
     <!-- Content -->
-    <div id="weeknotes" class="pt-6"></div>
+    <div class="columns m-0 p-0">
+        <div class="column">
+            <!-- Navigation bar -->
+            <div id="navbar-menu" class="is-inline"></div>
+            <!-- Weeknotes -->
+            <div id="weeknotes" class="pt-6"></div>
+        </div>
+        <!-- RSS Feed -->
+        <div id="rss-feed" class="column m-0" style="max-width: 400px !important"></div>
+    </div>
     <!-- Script -->
     <script>
         renderNavbar('Louis Machin');
+        renderRSSFeed();
         assignValues().then(() => {
             renderWeeknoteTitles();
         });

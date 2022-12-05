@@ -7,10 +7,23 @@ body {
     height: 320px;
 }
 
+#weeknotes {
+    overflow: scroll;
+}
+
 #weeknote-title {
     border-top: 4px solid black;
 }
 
 div.code {
     white-space: pre !important;
+}
+
+#rss-feed {
+    max-height: calc(100vh - 80px);
+    overflow: scroll;
+}
+
+#rss-feed .description {
+    color: inherit;
 }
