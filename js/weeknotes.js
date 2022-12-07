@@ -1,3 +1,15 @@
+var replaceLinks = (str) => {
+    const full_regex = /(?:__|[*#])|\[(.*?)\]\(.*?\)/gm
+    const caption_regex = /\[(.*?)\]/
+    const link_regex = /\((.*?)\)/
+    str.match(full_regex).forEach(full_link => { 
+        let caption = full_link.match(caption_regex)[1];
+        let link = full_link.match(link_regex)[1]
+        str = str.replace(full_link, `<a href="${link}" target="_blank">${caption}</a>`);
+    });
+    return str;
+};
+
 var renderWeeknote = () => {
     getTask().then(task => {
         let parent = document.getElementById('weeknote-title');
@@ -54,7 +66,7 @@ var renderText = (text) => {
     parent.appendChild(li);
     text.split("\n").forEach(paragraph => {
         let p = document.createElement('p');
-        p.innerText = paragraph;
+        p.innerText = replaceLinks(paragraph);
         li.appendChild(p);
     });
 }
