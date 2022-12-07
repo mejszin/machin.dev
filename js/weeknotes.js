@@ -2,7 +2,9 @@ var replaceLinks = (str) => {
     const full_regex = /(?:__|[*#])|\[(.*?)\]\(.*?\)/gm
     const caption_regex = /\[(.*?)\]/
     const link_regex = /\((.*?)\)/
-    str.match(full_regex).forEach(full_link => { 
+    let matches = str.match(full_regex);
+    if (matches == null) { return str };
+    matches.forEach(full_link => { 
         let caption = full_link.match(caption_regex)[1];
         let link = full_link.match(link_regex)[1]
         str = str.replace(full_link, `<a href="${link}" target="_blank">${caption}</a>`);
