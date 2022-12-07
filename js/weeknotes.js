@@ -66,7 +66,9 @@ var renderText = (text) => {
     parent.appendChild(li);
     text.split("\n").forEach(paragraph => {
         let p = document.createElement('p');
-        p.innerText = replaceLinks(paragraph);
+        str = replaceLinks(paragraph);
+        console.log(str);
+        p.innerHTML = str;
         li.appendChild(p);
     });
 }
