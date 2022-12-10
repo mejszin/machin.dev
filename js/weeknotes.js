@@ -44,6 +44,11 @@ var renderWeeknoteFeed = () => {
                     console.log(entry.content.text);
                     renderText(entry.content.text);
                     break;
+                case 'image':
+                    // render image
+                    console.log(entry.content.uri);
+                    renderImage(entry.content.uri);
+                    break;
                 case 'code':
                     // render code
                     console.log(entry.content.text, entry.content.language);
@@ -82,6 +87,14 @@ var renderGPX = (basename, uri) => {
     div.classList.add('gpx-map', 'mt-2', 'mb-4');
     parent.appendChild(div);
     renderMap(div.id, uri);
+}
+
+var renderImage = (uri) => {
+    let parent = document.getElementById('entries');
+    let img = document.createElement('img');
+    img.classList.add('mt-2', 'mb-4');
+    img.src = uri;
+    parent.appendChild(img);
 }
 
 var renderCode = (text, language='text') => {
