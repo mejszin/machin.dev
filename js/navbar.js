@@ -2,7 +2,7 @@ var navlinks = {
     'Louis Machin': '/',
 //  'Projects': '',
     'Mastodon': 'https://lor.sh/@louis',
-    'GitHub': 'https://github.com/mejszin',
+    'Git': 'https://git.machin.dev',
     'Instagram': 'https://instagram.com/mejszin',
     'YouTube': 'https://youtube.com/@louismachin',
     'Email': 'mailto:louis@machin.dev',
