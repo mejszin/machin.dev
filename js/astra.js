@@ -51,7 +51,8 @@ var getWeekFeed = (week_no) => {
                     feed.push(entry);
                 }
             });
-            feed.sort((a, b) => b.time.updated - a.time.updated);
+            // Sort by updated time
+            feed.sort((a, b) => a.time.updated - b.time.updated);
             resolve(feed);
         })
     });
